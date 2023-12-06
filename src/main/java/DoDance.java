@@ -11,12 +11,17 @@ import java.awt.Desktop;
 public class DoDance extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        Messages.showMessageDialog("Hello World","Hello",Messages.getInformationIcon());
+        //Messages.showMessageDialog("Hello World","Hello",Messages.getInformationIcon());
 
         Desktop d = Desktop.getDesktop();
 
         try {
             d.browse(new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+        } catch (IOException | URISyntaxException ex) {
+            throw new RuntimeException(ex);
+        }
+        try {
+            d.browse(new URI("https://media.tenor.com/UTrLSr85tYEAAAAC/happy-cat-cat.gif"));
         } catch (IOException | URISyntaxException ex) {
             throw new RuntimeException(ex);
         }
